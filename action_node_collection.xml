@@ -1,0 +1,55 @@
+<action_node_collection>
+  <action_nodes>
+    <ActionNode id="1">
+      <title>Sample</title>
+      <!-- node description displayed to the user -->
+      <text>This is an action node.</text>
+      <reference_url>www.google.com</reference_url>
+      <!-- image with description displayed to the user -->
+      <img></img>
+      <!-- id of the category. see categories.xml -->
+      <category>1</category>
+      <!-- id of the subcategory. see categories.xml -->
+      <subcategory>2</subcategory>
+      <!-- name of the model, if needed. generally, the node's model is given by the subcategory. -->
+      <model_name>windmill_1</model_name>
+      <regions>
+        <!-- id: id of the region affected. see regions.xml -->
+        <region id="0"></region>
+      </regions>
+      <effects>
+        <!-- The effects this node has.
+          type: one of [ENVIRONMENTAL, ECONOMIC, GREEN_SENTIMENT, TECHNOLOGY]
+          duration: number of years the node has effects, where -1 means forever and 0 means the effect occurs once and immediately. 
+          area: one of [GLOBAL, REGIONAL] if regional, affects region list above
+          amount: effect per year. amount x duration = total effect of this node -->
+        <Effect type="ENVIRONMENTAL" duration="10" area="GLOBAL" amount="+1"></Effect>
+        <Effect type="ENVIRONMENTAL" duration="10" area="REGIONAL" amount="+10"></Effect>
+        <Effect type="ECONOMIC" duration="10" area="REGIONAL" amount="+10"></Effect>
+        <Effect type="GREEN_SENTIMENT" duration="10" area="REGIONAL" amount="+10"></Effect>
+        <Effect type="TECHNOLOGY" duration="10" area="REGIONAL" amount="+10"></Effect>
+      </effects>
+      <costs>
+        <!-- The base cost of the node.
+          type: one of [DONATION, POLITICAL]
+          duration: number of years the node is paid for, where -1 means forever and 0 means paid once
+          amount: cost per year. amount x duration = total cost of this node -->
+        <Cost type="DONATION" duration="0" amount="1000">
+          <factors>
+            <!-- These are factors that add or subtract from the base cost of this node. 
+              type: one of [TECHNOLOGY, GREEN_SENTIMENT]
+              duration: number of years the node is paid for, where -1 means forever and 0 means paid once
+              amount: cost per year. amount x duration = total cost of this node -->
+            <Factor type="TECHNOLOGY"></Factor>
+          </factors>
+        </Cost>
+        <Cost type="POLITICAL" duration="0" amount="1000">
+          <factors>
+            <Factor type="GREEN_SENTIMENT"></Factor>
+          </factors>
+        </Cost>
+      </costs>
+      <sellable>true</sellable>
+    </ActionNode>
+  </action_nodes>
+</action_node_collection>
