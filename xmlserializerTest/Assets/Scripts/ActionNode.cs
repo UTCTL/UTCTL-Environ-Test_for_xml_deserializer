@@ -1,12 +1,12 @@
 using System.Xml;
 using System.Xml.Serialization;
-// for Container class
+using System.Collections.Generic;
+using UnityEngine;
 
 public class ActionNode
 {
 	// Store all the xml tag info here
 
-	// xml tags as variables
 	public string title; 
 	public string text;
 	public string reference_url;
@@ -19,17 +19,15 @@ public class ActionNode
 	[XmlAttribute("id")]
 	public int region;
 
-	// how to deserialize multiple effects?
-	[XmlElement("effect")]
-	public Effect effect;
+	[XmlElement("effects")]
+	public List<Effect> effects = new List<Effect>();
 
-	// how to include multiple different costs?
-	[XmlElement("cost")]
-	public Cost cost;
+	[XmlElement("costs")]
+	public List<Cost> costs = new List<Cost>();
 
 	public bool sellable;
 
-
+	// probability?
 }
 
 public class Effect 
@@ -53,9 +51,8 @@ public class Cost
 	[XmlAttribute]
 	public int amount;
 
-	// how to include multiple factors?
-	[XmlElement("factor")]
-	public Factor factor;
+	[XmlElement("factors")]
+	public List<Factor> factors = new List<Factor>();
 }
 
 public class Factor

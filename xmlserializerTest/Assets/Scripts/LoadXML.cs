@@ -9,6 +9,7 @@ public class LoadXML : MonoBehaviour {
 	{
 		//ActionNodeContainer container = new ActionNodeContainer();
 		ActionNodeContainer nodeCollection = Container.DeserializeXml(Path.Combine(Application.dataPath, "action_node_collection.xml"));
+		Debug.Log ("nodeCollection succesfully created");
 	}
 
 }
