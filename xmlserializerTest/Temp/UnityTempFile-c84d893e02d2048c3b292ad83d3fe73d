@@ -31,11 +31,12 @@
 -define:ENABLE_NAVMESH_CARVING
 -define:ENABLE_DUCK_TYPING
 -define:ENABLE_SINGLE_INSTANCE_BUILD_SETTING
--define:UNITY_4_3_3
+-define:UNITY_4_3_4
 -define:UNITY_4_3
 -define:ENABLE_PROFILER
 -define:UNITY_EDITOR
 -define:UNITY_EDITOR_OSX
+'Assets/Scripts/ActionNode.cs'
 'Assets/Scripts/ActionNodeContainer.cs'
 'Assets/Scripts/LoadXML.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'

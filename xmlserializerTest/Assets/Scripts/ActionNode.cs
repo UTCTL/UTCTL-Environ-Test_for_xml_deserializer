@@ -28,6 +28,21 @@ public class ActionNode
 	public bool sellable;
 
 	// probability?
+
+	public void printInfo()
+	{
+		Debug.Log ("title: " + title);
+		Debug.Log ("text: " + text);
+		Debug.Log ("reference_url: " + reference_url);
+		Debug.Log ("img: " + img);
+		Debug.Log ("category: " + category);
+		Debug.Log ("subcategory: " + subcategory);
+		Debug.Log ("model_name: " + model_name);
+		Debug.Log ("region: " + region);
+		Debug.Log ("effects: " + effects);
+		Debug.Log ("costs: " + costs);
+		Debug.Log ("sellable: " + sellable);
+	}
 }
 
 public class Effect 
