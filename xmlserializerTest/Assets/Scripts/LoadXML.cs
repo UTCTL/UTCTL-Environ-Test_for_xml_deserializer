@@ -9,7 +9,6 @@ public class LoadXML : MonoBehaviour {
 
 	void Start()
 	{
-		//ActionNodeContainer container = new ActionNodeContainer();
 		ActionNodeContainer nodeCollection = Container.DeserializeXml(Path.Combine(Application.dataPath, "action_node_collection.xml"));
 		Debug.Log ("nodeCollection succesfully created");
 		nodeCollection.SetCount ();
@@ -22,4 +21,5 @@ public class LoadXML : MonoBehaviour {
 
 	}
 
+	// for random value use Random.value --> returns random num between 0 (incl) and 1 (incl)
 }

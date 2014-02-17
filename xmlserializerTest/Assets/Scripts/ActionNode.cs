@@ -34,7 +34,7 @@ public class ActionNode
 		Debug.Log ("title: " + title);
 		Debug.Log ("text: " + text);
 		Debug.Log ("reference_url: " + reference_url);
-		Debug.Log ("img: " + img);
+		Debug.Log ("img: " + img + "\tis img equal to emptystring " + (img == ""));
 		Debug.Log ("category: " + category);
 		Debug.Log ("subcategory: " + subcategory);
 		Debug.Log ("model_name: " + model_name);

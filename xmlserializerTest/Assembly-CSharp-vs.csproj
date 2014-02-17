@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\ActionNode.cs" />
      <Compile Include="Assets\Scripts\ActionNodeContainer.cs" />
      <Compile Include="Assets\Scripts\LoadXML.cs" />
+     <Compile Include="Assets\Scripts\NodeCatPrefabs.cs" />
      <None Include="Assets\action_node_collection.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
