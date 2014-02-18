@@ -33,32 +33,34 @@ public class ActionNode
 
 	public void printInfo()
 	{
-		Debug.Log ("title: " + title);
-		Debug.Log ("text: " + text);
-		Debug.Log ("reference_url: " + reference_url);
-		Debug.Log ("img: " + img + "\tis img equal to emptystring " + (img == ""));
-		Debug.Log ("category: " + category);
-		Debug.Log ("subcategory: " + subcategory);
-		Debug.Log ("model_name: " + model_name);
-		Debug.Log ("region: " + region);
-		Debug.Log ("effects: " + effects);
+		Debug.Log ("-------PRINTING NODE INFO-------\n");
+		Debug.Log ("title: " + title + "\n");
+		Debug.Log ("text: " + text + "\n");
+		Debug.Log ("reference_url: " + reference_url + "\n");
+		Debug.Log ("img: " + img + "\tis img equal to emptystring " + (img == "") + "\n");
+		Debug.Log ("category: " + category + "\n");
+		Debug.Log ("subcategory: " + subcategory + "\n");
+		Debug.Log ("model_name: " + model_name + "\n");
+		Debug.Log ("region: " + region + "\n");
+		Debug.Log ("effects: " + effects + "\n");
 
 		foreach (Effect e in effects)
 		{
-			Debug.Log ("\t\tEFFECT: type: " + e.type + " duration: " + e.duration + " area: " + e.area + " amount: " + e.amount);
+			Debug.Log ("\t\tEFFECT: type: " + e.type + " duration: " + e.duration + " area: " + e.area + " amount: " + e.amount + "\n");
 		}
 
-		Debug.Log ("costs: " + costs);
+		Debug.Log ("costs: " + costs + "\n");
 
 		foreach (Cost c in costs)
 		{
-			Debug.Log ("\t\tCOST: type: " + c.type + " duration: " + c.duration + " amount: " + c.amount);
+			Debug.Log ("\t\tCOST: type: " + c.type + " duration: " + c.duration + " amount: " + c.amount + "\n");
 			foreach (Factor f in c.factors)
 			{
-				Debug.Log("\t\t\tfactor type: " + f.type);
+				Debug.Log("\t\t\tfactor type: " + f.type + "\n");
 			}
 		}
-		Debug.Log ("sellable: " + sellable);
+		Debug.Log ("sellable: " + sellable + "\n");
+		Debug.Log ("-------END NODE INFO-------" + "\n");
 	}
 }
 

@@ -7,6 +7,7 @@ using System.IO;
 
 public class LoadXML : MonoBehaviour {
 
+	// deserialize the xml into a list of action nodes at the start of the game
 	void Start()
 	{
 		ActionNodeContainer nodeCollection = Container.DeserializeXml(Path.Combine(Application.dataPath, "action_node_collection.xml"));
@@ -15,7 +16,7 @@ public class LoadXML : MonoBehaviour {
 		Debug.Log ("SetCount successfullly called");
 		Debug.Log ("Number of elements in nodeCollection: " + nodeCollection.Count);
 
-		ActionNode testNode = nodeCollection.actionNodes [0];
+		ActionNode testNode = nodeCollection.actionNodes [0]; // get the first node from the list of action nodes
 		Debug.Log ("Isolated the first node");
 		testNode.printInfo ();
 
