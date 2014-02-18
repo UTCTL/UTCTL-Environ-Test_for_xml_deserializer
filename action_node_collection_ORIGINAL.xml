@@ -1,87 +1,86 @@
-<action_node_collection>
-  <action_nodes>
-    <ActionNode id="1">
-      <title>Sample</title>
-      <!-- node description displayed to the user -->
-      <text>This is an action node.</text>
-      <reference_url>www.google.com</reference_url>
-      <!-- image with description displayed to the user -->
-      <img></img>
-      <!-- id of the category. see categories.xml -->
-      <category>1</category>
-      <!-- id of the subcategory. see categories.xml -->
-      <subcategory>2</subcategory>
-      <!-- name of the model, if needed. generally, the node's model is given by the subcategory. -->
-      <model_name>windmill_1</model_name>
-      <regions>
-        <!-- id: id of the region affected. see regions.xml -->
-        <region id="0"></region>
-      </regions>
-      <effects>
-        <!-- The effects this node has.
-          type: one of [ENVIRONMENTAL, ECONOMIC, GREEN_SENTIMENT, TECHNOLOGY]
-          duration: number of years the node has effects, where -1 means forever and 0 means the effect occurs once and immediately. 
-          area: one of [GLOBAL, REGIONAL] if regional, affects region list above
-          amount: effect per year. amount x duration = total effect of this node -->
-        <Effect type="ENVIRONMENTAL" duration="10" area="GLOBAL" amount="+1"></Effect>
-        <Effect type="ENVIRONMENTAL" duration="10" area="REGIONAL" amount="+10"></Effect>
-        <Effect type="ECONOMIC" duration="10" area="REGIONAL" amount="+10"></Effect>
-        <Effect type="GREEN_SENTIMENT" duration="10" area="REGIONAL" amount="+10"></Effect>
-        <Effect type="TECHNOLOGY" duration="10" area="REGIONAL" amount="+10"></Effect>
-      </effects>
-      <costs>
-        <!-- The base cost of the node.
-          type: one of [DONATION, POLITICAL]
-          duration: number of years the node is paid for, where -1 means forever and 0 means paid once
-          amount: cost per year. amount x duration = total cost of this node -->
-        <Cost type="DONATION" duration="0" amount="1000">
-          <factors>
-            <!-- These are factors that add or subtract from the base cost of this node. 
-              type: one of [TECHNOLOGY, GREEN_SENTIMENT]
-              duration: number of years the node is paid for, where -1 means forever and 0 means paid once
-              amount: cost per year. amount x duration = total cost of this node -->
-            <Factor type="TECHNOLOGY"></Factor>
-          </factors>
-        </Cost>
-        <Cost type="POLITICAL" duration="0" amount="1000">
-          <factors>
-            <Factor type="GREEN_SENTIMENT"></Factor>
-          </factors>
-        </Cost>
-      </costs>
-      <sellable>true</sellable>
-
-      <probability>
-        <!-- Each node has a probability of appearing, default 1. Nodes have conditions that multiply the probability of appearing. These conditions are based on game scores, time elapsed, and nodes already completed. -->
+<action_nodes>
+  <action_node id="1">
+    <title>Sample</title>
+    <!-- node description displayed to the user -->
+    <text>This is an action node.</text>
+    <reference_url>www.google.com</reference_url>
+    <!-- image with description displayed to the user -->
+    <img></img>
+    <!-- id of the category. see categories.xml -->
+    <category>1</category>
+    <!-- id of the subcategory. see categories.xml -->
+    <subcategory>2</subcategory>
+    <!-- name of the model, if needed. generally, the node's model is given by the subcategory. -->
+    <model_name>windmill_1</model_name>
+    <regions>
+      <!-- id: id of the region affected. see regions.xml -->
+      <region id="0"></region>
+    </regions>
+    <effects>
+      <!-- The effects this node has.
+        type: one of [ENVIRONMENTAL, ECONOMIC, GREEN_SENTIMENT, TECHNOLOGY]
+        duration: number of years the node has effects, where -1 means forever and 0 means the effect occurs once and immediately. 
+        area: one of [GLOBAL, REGIONAL] if regional, affects region list above
+        amount: effect per year. amount x duration = total effect of this node -->
+      <effect type="ENVIRONMENTAL" duration="10" area="GLOBAL" amount="10"></effect>
+      <effect type="ENVIRONMENTAL" duration="10" area="REGIONAL" amount="10"></effect>
+      <effect type="ECONOMIC" duration="10" area="REGIONAL" amount="-10"></effect>
+      <effect type="GREEN_SENTIMENT" duration="10" area="REGIONAL" amount="10"></effect>
+      <effect type="TECHNOLOGY" duration="10" area="REGIONAL" amount="10"></effect>
+    </effects>
+    <costs>
+      <!-- The base cost of the node.
+        type: one of [DONATION, POLITICAL]
+        duration: number of years the node is paid for, where -1 means forever and 0 means paid once
+        amount: cost per year. amount x duration = total cost of this node -->
+      <cost type="DONATION" duration="0" amount="1000">
         <conditions>
-          <!-- The types of conditions are: [PREREQ, GREEN_SENTIMENT, TECHNOLOGY, ECO_GLOBAL, ECO_REGIONAL, ENV_GLOBAL, ENV_REGIONAL, YEARS_ELAPSED]. Except for the PREREQ type, the rest of the conditions work the same. 
+          <!-- These are conditions that multiply the base cost of the node. 
+            The types of conditions that affect cost are [TECHNOLOGY, GREEN_SENTIMENT]
+            type: one of [TECHNOLOGY, GREEN_SENTIMENT] 
 
-          Prereq conditions must have these fields:
-            num_required: # prereqs that must be completed
-            satisfied: multiplier if prereqs met
-            unsatisfied: multiplier if prereqs not met
-
-          Prereq conditions must also give a list the ids for the prereq nodes. 
-
-          For other condition types, we compare the score of the condition type (the green sentiment score if the type is GREEN_SENTIMENT) to specified ranges. A range is definited by "start,end" and each range corresponds to a value. -1 represents infinity (so "0,-1" would cover all of time). Based on what range the score falls between, the multiplier is given. If the score does not fall within any of the ranges, the multiplier is ignored. 
-          -->
-          <condition type="PREREQ" num_required="1" satisfied="1.5" unsatisfied="0">
-            <nodes>
-              <node>2</node>
-              <node>3</node>
-            </nodes>  
-          </condition>
-          <condition type="GREEN_SENTIMENT">
-            <range limits="0,100">
-              <value>.5</value>
-            </range>
-            <range limits="100,200">
-              <value>1.5</value>
-            </range>
+            We compare the score of the condition type (the green sentiment score if the type is GREEN_SENTIMENT) to specified ranges. A range is definited by "start,end" and each range corresponds to a value. -1 represents infinity (so "0,-1" would cover all of time). Based on what range the score falls between, the multiplier is given. If the score does not fall within any of the ranges, the multiplier is ignored. -->
+          <condition type="TECHNOLOGY">
+            <ranges>
+              <range limits="400, -1" multiplier="1.5"></range>
+            </ranges>
           </condition>
         </conditions>
-      </probability>
-      
-    </ActionNode>
-  </action_nodes>
-</action_node_collection>
+      </cost>
+      <cost type="POLITICAL" duration="0" amount="1000">
+        <conditions>
+          <condition type="GREEN_SENTIMENT"></condition>
+        </conditions>
+      </cost>
+    </costs>
+    <sellable>true</sellable>
+    <probability>
+      <!-- Each node has a probability of appearing, default 1. Nodes have conditions that multiply the probability of appearing. These conditions are based on game scores, time elapsed, and nodes already completed. -->
+      <conditions>
+        <!-- The types of conditions that affect probability are: [PREREQ, GREEN_SENTIMENT, TECHNOLOGY, ECO_GLOBAL, ECO_REGIONAL, ENV_GLOBAL, ENV_REGIONAL, YEARS_ELAPSED]. Except for the PREREQ type, the rest of the conditions work the same. 
+
+        Prereq conditions must have these fields:
+          num_required: # prereqs that must be completed
+          satisfied: multiplier if prereqs met
+          unsatisfied: multiplier if prereqs not met
+
+        Prereq conditions must also give a list of the ids for the prereq nodes. 
+
+        For other condition types, we compare the score of the condition type (the green sentiment score if the type is GREEN_SENTIMENT) to specified ranges. A range is definited by "start,end" and each range corresponds to a value. -1 represents infinity (so "0,-1" would cover all of time). Based on what range the score falls between, the multiplier is given. If the score does not fall within any of the ranges, the multiplier is ignored. 
+        -->
+        <condition type="PREREQ" num_required="1" satisfied="1.5" unsatisfied="0">
+          <nodes>
+            <node>2</node>
+            <node>3</node>
+          </nodes>  
+        </condition>
+        <condition type="GREEN_SENTIMENT">
+          <ranges>
+            <range limits="0,100" multiplier=".5"></range>
+            <range limits="100,200" multiplier="1.5"></range>
+          </ranges>
+        </condition>
+      </conditions>
+    </probability>
+  </action_node>
+</action_nodes>

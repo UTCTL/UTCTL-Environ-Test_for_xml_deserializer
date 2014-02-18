@@ -17,15 +17,15 @@ public class ActionNode
 
 	// regions affected?
 	[XmlArray("regions")]
-	[XmlArrayItem("Region")]
+	[XmlArrayItem("region")]
 	public List<Region> regions = new List<Region>();
 	
 	[XmlArray("effects")]
-	[XmlArrayItem("Effect")]
+	[XmlArrayItem("effect")]
 	public List<Effect> effects = new List<Effect>();
 	
 	[XmlArray("costs")]
-	[XmlArrayItem("Cost")]
+	[XmlArrayItem("cost")]
 	public List<Cost> costs = new List<Cost>();
 
 	public bool sellable;
@@ -50,20 +50,19 @@ public class ActionNode
 		}
 
 		Debug.Log ("effects: " + effects + "\n");
-
 		foreach (Effect e in effects)
 		{
-			Debug.Log ("\t\tEFFECT: type: " + e.type + " duration: " + e.duration + " area: " + e.area + " amount: " + e.amount + "\n");
+			Debug.Log ("\t\tEFFECT: id: " + e.id + " duration: " + e.duration + " area: " + e.area + " amount: " + e.amount + "\n");
 		}
 
 		Debug.Log ("costs: " + costs + "\n");
 
 		foreach (Cost c in costs)
 		{
-			Debug.Log ("\t\tCOST: type: " + c.type + " duration: " + c.duration + " amount: " + c.amount + "\n");
-			foreach (Factor f in c.factors)
+			Debug.Log ("\t\tCOST: id: " + c.id + " duration: " + c.duration + " amount: " + c.amount + "\n");
+			foreach (Condition co in c.conditions)
 			{
-				Debug.Log("\t\t\tfactor type: " + f.type + "\n");
+				Debug.Log("\t\t\tcondition id: " + co.id + "\n");
 			}
 		}
 		Debug.Log ("sellable: " + sellable + "\n");
@@ -79,34 +78,34 @@ public class Region
 
 public class Effect 
 {
-	[XmlAttribute("type")]
-	public string type;
+	[XmlAttribute("id")]
+	public int id;
 	[XmlAttribute("duration")]
 	public int duration;
 	[XmlAttribute("area")]
 	public string area;
 	[XmlAttribute("amount")]
-	public string amount; 	// has to be string because entered as "+10", maybe change to just "10" and then for negative "-10" for int type?
+	public int amount;
 }
 
 public class Cost 
 {
 	[XmlAttribute]
-	public string type;
+	public int id;
 	[XmlAttribute]
 	public int duration;
 	[XmlAttribute]
 	public int amount;
 	
-	[XmlArray("factors")]
-	[XmlArrayItem("Factor")]
-	public List<Factor> factors = new List<Factor>();
+	[XmlArray("conditions")]
+	[XmlArrayItem("condition")]
+	public List<Condition> conditions = new List<Condition>();
 }
 
-public class Factor
+public class Condition
 {
 	[XmlAttribute]
-	public string type;
+	public int id;
 	[XmlAttribute]
 	public int duration;
 	[XmlAttribute]

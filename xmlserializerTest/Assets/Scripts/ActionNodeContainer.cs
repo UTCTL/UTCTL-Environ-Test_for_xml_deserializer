@@ -5,7 +5,7 @@ using System.IO;
 using System;
 using UnityEngine;
 
-[XmlRoot("action_node_collection")]		// leave _ naming convention or switch to camelcase? 
+[XmlRoot("action_nodes")]		// leave _ naming convention or switch to camelcase? 
 public class ActionNodeContainer
 {
 	public int Count;
@@ -14,13 +14,10 @@ public class ActionNodeContainer
 		Count = actionNodes.Count;
 		return Count;
 	}
-
-	[XmlArray("action_nodes")]
-	[XmlArrayItem("ActionNode")]
+	
+	[XmlElement("action_node")]
 	public List<ActionNode> actionNodes = new List<ActionNode>();
 	//SetCount();
-	
-
 
 	//Debug.Log("List of action nodes created");
 	

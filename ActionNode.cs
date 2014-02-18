@@ -39,7 +39,7 @@ public class Effect
 	[XmlAttribute]
 	public string area;
 	[XmlAttribute]
-	public string amount; 	// has to be string because entered as "+10", maybe change to just "10" and then for negative "-10" for int type?
+	public int amount;
 }
 
 public class Cost 

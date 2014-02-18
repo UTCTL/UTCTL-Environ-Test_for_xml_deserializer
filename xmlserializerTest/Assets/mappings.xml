@@ -1,0 +1,75 @@
+<mappings>
+  <regions>
+    <region id="0" name="World"></region>
+    <region id="1" name="East Asia"></region>
+    <region id="2" name="Central Asia"></region>
+    <region id="3" name="Europe"></region>
+    <region id="4" name="Africa"></region>
+    <region id="5" name="North America"></region>
+    <region id="6" name="South America"></region>
+  </regions>
+
+  <categories>
+    <category id="1" name="Energy">
+      <subcategories>
+        <subcategory id="1" name="Hydro"></subcategory>
+        <subcategory id="2" name="Solar"></subcategory>
+        <subcategory id="3" name="Wind"></subcategory>
+        <subcategory id="4" name="Biofuel"></subcategory>
+        <subcategory id="5" name="Nuclear"></subcategory>
+        <subcategory id="6" name="Fossil Fuel"></subcategory>
+      </subcategories>
+    </category>
+    <category id="2" name="Land">
+      <subcategories>
+        <subcategory id="1" name="City"></subcategory>
+      </subcategories>
+    </category>
+    <category id="3" name="Water">
+      <subcategories>
+        <subcategory id="1" name="Treatment"></subcategory>
+      </subcategories>
+    </category>
+    <category id="4" name="Air">
+      <subcategories>
+        <subcategory id="1" name="Carbon Capture"></subcategory>
+        <subcategory id="2" name="Weather"></subcategory>
+      </subcategories>
+    </category>
+    <category id="5" name="Ecosystem"></category>
+    <category id="6" name="Miscellaneous">
+      <subcategories>
+        <subcategory id="1" name="General Technology"></subcategory>
+        <subcategory id="2" name="Other"></subcategory>
+      </subcategories>
+    </category>
+  </categories>
+
+  <conditions>
+    <condition id="0" name="ECO_GLOBAL"></condition>
+    <condition id="1" name="ECO_REGIONAL"></condition>
+    <condition id="2" name="ENV_GLOBAL"></condition>
+    <condition id="3" name="ENV_REGIONAL"></condition>
+    <condition id="4" name="GREEN_SENTIMENT"></condition>
+    <condition id="5" name="TECHNOLOGY"></condition>
+    <condition id="6" name="YEARS_ELAPSED"></condition>
+    <condition id="7" name="PREREQ"></condition>
+  </conditions>
+
+  <areas>
+    <area id="0" name="GLOBAL"></area>
+    <area id="1" name="REGIONAL"></area>
+  </areas>
+
+  <effects>
+    <effect id="0" name="ENVIRONMENTAL"></effect>
+    <effect id="1" name="ECONOMIC"></effect>
+    <effect id="2" name="GREEN_SENTIMENT"></effect>
+    <effect id="3" name="TECHNOLOGY"></effect>
+  </effects>
+
+  <costs>
+    <cost id="0" name="DONATION"></cost>
+    <cost id="1" name="POLITICAL"></cost>
+  </costs>
+</mappings>
