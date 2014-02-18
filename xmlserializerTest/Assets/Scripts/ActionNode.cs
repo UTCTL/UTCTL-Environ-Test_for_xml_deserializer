@@ -18,11 +18,13 @@ public class ActionNode
 	// regions affected?
 	[XmlAttribute("id")]
 	public int region;
-
-	[XmlElement("effects")]
+	
+	[XmlArray("effects")]
+	[XmlArrayItem("Effect")]
 	public List<Effect> effects = new List<Effect>();
-
-	[XmlElement("costs")]
+	
+	[XmlArray("costs")]
+	[XmlArrayItem("Cost")]
 	public List<Cost> costs = new List<Cost>();
 
 	public bool sellable;
@@ -40,20 +42,35 @@ public class ActionNode
 		Debug.Log ("model_name: " + model_name);
 		Debug.Log ("region: " + region);
 		Debug.Log ("effects: " + effects);
+
+		foreach (Effect e in effects)
+		{
+			Debug.Log ("\t\tEFFECT: type: " + e.type + " duration: " + e.duration + " area: " + e.area + " amount: " + e.amount);
+		}
+
 		Debug.Log ("costs: " + costs);
+
+		foreach (Cost c in costs)
+		{
+			Debug.Log ("\t\tCOST: type: " + c.type + " duration: " + c.duration + " amount: " + c.amount);
+			foreach (Factor f in c.factors)
+			{
+				Debug.Log("\t\t\tfactor type: " + f.type);
+			}
+		}
 		Debug.Log ("sellable: " + sellable);
 	}
 }
 
 public class Effect 
 {
-	[XmlAttribute]
+	[XmlAttribute("type")]
 	public string type;
-	[XmlAttribute]
+	[XmlAttribute("duration")]
 	public int duration;
-	[XmlAttribute]
+	[XmlAttribute("area")]
 	public string area;
-	[XmlAttribute]
+	[XmlAttribute("amount")]
 	public string amount; 	// has to be string because entered as "+10", maybe change to just "10" and then for negative "-10" for int type?
 }
 
@@ -65,8 +82,9 @@ public class Cost
 	public int duration;
 	[XmlAttribute]
 	public int amount;
-
-	[XmlElement("factors")]
+	
+	[XmlArray("factors")]
+	[XmlArrayItem("Factor")]
 	public List<Factor> factors = new List<Factor>();
 }
 

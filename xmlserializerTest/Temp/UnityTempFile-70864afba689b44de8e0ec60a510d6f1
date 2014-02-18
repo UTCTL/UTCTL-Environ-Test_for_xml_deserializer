@@ -39,5 +39,6 @@
 'Assets/Scripts/ActionNode.cs'
 'Assets/Scripts/ActionNodeContainer.cs'
 'Assets/Scripts/LoadXML.cs'
+'Assets/Scripts/NodeCatPrefabs.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'
