@@ -15,7 +15,7 @@
       <model_name>windmill_1</model_name>
       <regions>
         <!-- id: id of the region affected. see regions.xml -->
-        <region id="0"></region>
+        <Region id="0"></Region>
       </regions>
       <effects>
         <!-- The effects this node has.

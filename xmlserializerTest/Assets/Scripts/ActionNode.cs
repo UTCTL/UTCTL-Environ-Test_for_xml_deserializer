@@ -16,8 +16,9 @@ public class ActionNode
 	public string model_name;
 
 	// regions affected?
-	[XmlAttribute("id")]
-	public int region;
+	[XmlArray("regions")]
+	[XmlArrayItem("Region")]
+	public List<Region> regions = new List<Region>();
 	
 	[XmlArray("effects")]
 	[XmlArrayItem("Effect")]
@@ -41,7 +42,13 @@ public class ActionNode
 		Debug.Log ("category: " + category + "\n");
 		Debug.Log ("subcategory: " + subcategory + "\n");
 		Debug.Log ("model_name: " + model_name + "\n");
-		Debug.Log ("region: " + region + "\n");
+		Debug.Log ("region: " + regions + "\n");
+
+		foreach (Region r in regions)
+		{
+			Debug.Log("\t\tREGION: " + r.id + "\n");
+		}
+
 		Debug.Log ("effects: " + effects + "\n");
 
 		foreach (Effect e in effects)
@@ -62,6 +69,12 @@ public class ActionNode
 		Debug.Log ("sellable: " + sellable + "\n");
 		Debug.Log ("-------END NODE INFO-------" + "\n");
 	}
+}
+
+public class Region
+{
+	[XmlAttribute("id")]
+	public int id;
 }
 
 public class Effect 
